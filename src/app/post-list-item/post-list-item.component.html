@@ -1,0 +1,22 @@
+<li [ngClass]="{'list-group-item':true,
+ 'list-group-item-success': this.loveIts > 0,
+ 'list-group-item-danger': this.loveIts < 0 }">
+    <div class="row" Style="background-color: getColor()">
+        <div>
+            <h2 class="coll-sm-9">{{title}}</h2>
+        </div>
+        <div class="coll-sm-3">
+            <p> {{created_at | date: 'y MMMM EEEE d hh:mm:ss'}} </p>
+            <p> {{updated_at | date: 'y MMMM EEEE d hh:mm:ss'}} </p>
+            <div style="width: 5px;height: 5px;background-color: red;" *ngIf="this.loveIts < 0"></div>
+        </div>
+    </div>
+    <p [ngStyle]="{color: getColor()}">{{content}}</p>
+    <div>
+        <button class="btn btn-success" (click)="addLike()">I Like It!</button>
+        <button class="btn btn-danger" (click)="dislike()"> I Don't Like It!</button>
+        {{loveIts}}
+    </div>
+</li>
+
+<!-- [ngStyle]="{background-color: getColor()}" -->
